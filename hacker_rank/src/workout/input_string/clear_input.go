@@ -1,5 +1,7 @@
 package input_string
 
-func clear_input(text string) string {
+import "strings"
+
+func Clear_input(text string) string {
   return strings.Trim(text, "\n")
 }

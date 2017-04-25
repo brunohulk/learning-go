@@ -1,12 +1,14 @@
 //https://www.hackerrank.com/challenges/a-very-big-sum
 
 package main
+
 import (
     "os"
     "bufio"
     "fmt"
     "strings"
-    "input_string/clear_string"
+    "strconv"
+    "workout/input_string"
 )
 
 func main() {
@@ -17,12 +19,12 @@ func main() {
  input_numbers, _ := reader.ReadString('\n')
  str_numbers, _ := reader.ReadString('\n')
 
- total_n,_ := strconv.Atoi(clear_input(input_numbers))
+ total_n,_ := strconv.Atoi(input_string.Clear_input(input_numbers))
 
  numbers := strings.Split(str_numbers," ")
 
  for i, value := range numbers {
-   val, _ := strconv.ParseInt(clear_input(value), 10, 64)
+   val, _ := strconv.ParseInt(input_string.Clear_input(value), 10, 64)
    total += val
 
    if i == total_n {
@@ -33,9 +35,7 @@ func main() {
  fmt.Println(total)
 }
 
-func clear_input(text string) string {
-  return strings.Trim(text, "\n")
-}
+
 
 
 
