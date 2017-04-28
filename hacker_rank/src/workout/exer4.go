@@ -15,6 +15,7 @@ func main() {
  reader := bufio.NewReader(os.Stdin)
 
  var total_positive, total_negative, total_zero int64
+ var fraction_negative, fraction_zero, fraction_positive float32
 
  input_numbers, _ := reader.ReadString('\n')
  str_numbers, _ := reader.ReadString('\n')
@@ -35,8 +36,23 @@ func main() {
      total_negative++
    }
  }
- fmt.Println(total_negative);
- fmt.Printf("%f \n", float32(total_positive)/float32(total_n))
- fmt.Printf("%f \n", float32(total_negative)/float32(total_n))
- fmt.Printf("%f \n", float32(total_zero)/float32(total_n))
+
+ fraction_negative = 0.0
+ if total_negative != 0 {
+   fraction_negative = float32(total_negative)/float32(total_n)
+ }
+
+ fraction_positive = 0.0
+ if total_positive != 0 {
+   fraction_positive = float32(total_positive)/float32(total_n)
+ }
+
+ fraction_zero = 0.0
+ if total_zero != 0 {
+   fraction_zero = float32(total_zero)/float32(total_n)
+ }
+
+ fmt.Printf("%f \n", fraction_positive)
+ fmt.Printf("%f \n", fraction_negative)
+ fmt.Printf("%f \n", fraction_zero)
 }
